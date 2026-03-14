@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louie Samaniego | Developer Portfolio</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <style>
+    :root {
+      --bg-1: #070b14;
+      --bg-2: #0d1322;
+      --bg-3: #10182b;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.10);
+      --text: #f4f7ff;
+      --muted: #b9c2d9;
+      --accent: #7c5cff;
+      --accent-2: #00d4ff;
+      --accent-3: #ff4ecd;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 92, 255, 0.18), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(0, 212, 255, 0.16), transparent 20%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .section-space {
+      padding: 90px 0;
+    }
+
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+    }
+
+    .navbar {
+      background: rgba(9, 13, 24, 0.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff !important;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.72) !important;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+    }
+
+    .btn-main {
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 13px 24px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 24px rgba(124, 92, 255, 0.25);
+      transition: 0.3s ease;
+    }
+
+    .btn-main:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 13px 24px;
+      transition: 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 95px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      animation: floatGlow 8s ease-in-out infinite;
+    }
+
+    .hero::before {
+      background: rgba(124, 92, 255, 0.22);
+      top: 40px;
+      left: -80px;
+    }
+
+    .hero::after {
+      background: rgba(0, 212, 255, 0.18);
+      right: -90px;
+      bottom: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.05); }
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: #a7deff;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      line-height: 1.03;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .hero-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-mini span {
+      font-size: 13px;
+      color: #dce4ff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .keyboard-scene {
+      perspective: 1500px;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .keyboard-board {
+      width: 100%;
+      max-width: 580px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 34px 70px rgba(0,0,0,0.34),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      transform: rotateX(58deg) rotateZ(-24deg);
+      animation: floatBoard 5.2s ease-in-out infinite;
+      position: relative;
+    }
+
+    .keyboard-board::before {
+      content: "";
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      bottom: -24px;
+      height: 38px;
+      background: rgba(124, 92, 255, 0.22);
+      filter: blur(28px);
+      z-index: -1;
+    }
+
+    .keyboard-board::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 24px;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    @keyframes floatBoard {
+      0%, 100% {
+        transform: rotateX(58deg) rotateZ(-24deg) translateY(0px);
+      }
+      50% {
+        transform: rotateX(58deg) rotateZ(-24deg) translateY(-10px);
+      }
+    }
+
+    .key {
+      height: 62px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #edf2ff;
+      background: linear-gradient(180deg, #1c2439, #101624);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 8px 0 #0a0f1b,
+        0 15px 18px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+    }
+
+    .key:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 0 #0a0f1b,
+        0 20px 22px rgba(0,0,0,0.30);
+    }
+
+    .key-space {
+      grid-column: span 6;
+      height: 64px;
+    }
+
+    .key-glow {
+      background: linear-gradient(180deg, #2d1f61, #141c33);
+      border: 1px solid rgba(124, 92, 255, 0.52);
+      box-shadow:
+        0 8px 0 #0a0f1b,
+        0 0 18px rgba(124, 92, 255, 0.35),
+        0 0 38px rgba(0, 212, 255, 0.10);
+    }
+
+    .key-pulse {
+      animation: pressKey 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pressKey {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(4px);
+        box-shadow:
+          0 4px 0 #0a0f1b,
+          0 8px 14px rgba(0,0,0,0.26),
+          0 0 16px rgba(124, 92, 255, 0.35);
+      }
+    }
+
+    .floating-label {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dde6ff;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      animation: floatTag 4.5s ease-in-out infinite;
+    }
+
+    .floating-label.one {
+      top: 12%;
+      left: 3%;
+    }
+
+    .floating-label.two {
+      top: 18%;
+      right: 8%;
+      animation-delay: 1s;
+    }
+
+    .floating-label.three {
+      bottom: 2%;
+      left: 8%;
+      animation-delay: 2s;
+    }
+
+    .floating-label.four {
+      bottom: 10%;
+      right: 2%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes floatTag {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .stats-card,
+    .service-card,
+    .project-card,
+    .contact-card {
+      height: 100%;
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .stats-card:hover,
+    .service-card:hover,
+    .project-card:hover,
+    .contact-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,92,255,0.32);
+    }
+
+    .stats-number {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-tag {
+      color: #9ddcff;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(0,212,255,.14));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-card p,
+    .project-card p,
+    .contact-card p,
+    .stats-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .ticker {
+      display: inline-flex;
+      gap: 40px;
+      width: max-content;
+      animation: tickerMove 20s linear infinite;
+      font-weight: 700;
+      color: #e3eaff;
+    }
+
+    @keyframes tickerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .ticker span {
+      opacity: 0.92;
+    }
+
+    .project-track-wrap {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+    }
+
+    .project-track {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: scrollProjects 28s linear infinite;
+    }
+    .project-track-2 {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: scrollProjects-2 28s linear infinite;
+    }
+
+    .project-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollProjects {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes scrollProjects-2 {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
+
+    .project-card {
+      width: 330px;
+      min-height: 235px;
+    }
+
+    .project-card h5,
+    .service-card h5,
+    .contact-card h5 {
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .about-box {
+      padding: 36px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.10), rgba(0,212,255,0.08));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      padding: 40px;
+      text-align: center;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(0,212,255,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .footer {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+    .logo-nav{
+  height:32px;
+  width:auto;
+}
+
+    @media (max-width: 1199px) {
+      .keyboard-board {
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .hero {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 70px;
+      }
+
+      .keyboard-scene {
+        min-height: 420px;
+      }
+
+      .keyboard-board {
+        max-width: 430px;
+        gap: 10px;
+        padding: 20px;
+        transform: rotateX(54deg) rotateZ(-18deg);
+      }
+
+      .key {
+        height: 50px;
+        font-size: 12px;
+      }
+
+      .key-space {
+        height: 54px;
+      }
+
+      .floating-label {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .section-space {
+        padding: 75px 0;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-text {
+        font-size: 0.98rem;
+      }
+
+      .project-card {
+        width: 280px;
+      }
+
+      .keyboard-board {
+        max-width: 345px;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .key {
+        height: 42px;
+        border-radius: 11px;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+      }
+
+      .key-space {
+        height: 46px;
+      }
+
+      .stats-card,
+      .service-card,
+      .project-card,
+      .contact-card,
+      .contact-box,
+      .about-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <img src="assets/img/5.png" class="logo-nav" alt="Louie Logo">
+        <span>Louie.dev</span>
+      </a>
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+      >
+        <i class="bi bi-list fs-1 text-white"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a
+              class="btn btn-sm btn-main ms-lg-2"
+              href="https://www.linkedin.com/in/louie-samaniego-a44001181/"
+              target="_blank"
+            >
+              Let’s Connect
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-wrap">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="hero-badge">
+            <i class="bi bi-cpu"></i>
+            Full-Stack Developer • UI/UX • Systems • AI-Ready Workflow
+          </div>
+
+          <h1 class="hero-title">
+            Turning <span class="gradient-text">ideas and workflows</span>
+            into clean, modern digital solutions.
+          </h1>
+
+          <p class="hero-text">
+            I’m Louie Samaniego, a developer from the Philippines focused on
+            responsive websites, business systems, frontend execution, API integrations,
+            and practical solutions that help teams and clients move faster.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-main">View My Projects</a>
+            <a href="https://samaniegolouie.github.io/" target="_blank" class="btn btn-ghost">
+              Visit Portfolio
+            </a>
+          </div>
+
+          <div class="hero-mini">
+            <span>Laravel</span>
+            <span>React</span>
+            <span>Bootstrap</span>
+            <span>WordPress</span>
+            <span>API Integration</span>
+            <span>System Workflow</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="keyboard-scene">
+            <div class="floating-label one">Responsive Builds</div>
+            <div class="floating-label two">Business Systems</div>
+            <div class="floating-label three">Frontend + Backend</div>
+            <div class="floating-label four">UI / API / Logic</div>
+
+            <div class="keyboard-board glass">
+              <div class="key">ESC</div>
+              <div class="key">F1</div>
+              <div class="key">F2</div>
+              <div class="key">F3</div>
+              <div class="key">F4</div>
+              <div class="key key-glow">UI</div>
+
+              <div class="key">Q</div>
+              <div class="key">W</div>
+              <div class="key">E</div>
+              <div class="key">R</div>
+              <div class="key">T</div>
+              <div class="key key-glow">API</div>
+
+              <div class="key">A</div>
+              <div class="key">S</div>
+              <div class="key">D</div>
+              <div class="key">F</div>
+              <div class="key">G</div>
+              <div class="key key-glow key-pulse">CODE</div>
+
+              <div class="key">Z</div>
+              <div class="key">X</div>
+              <div class="key">C</div>
+              <div class="key">V</div>
+              <div class="key">B</div>
+              <div class="key key-glow">BUILD</div>
+
+              <div class="key key-space">SYSTEMS • WEBSITES • WORKFLOWS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <section class="py-2">
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>Laravel</span>
+        <span>React</span>
+        <span>Bootstrap</span>
+        <span>WordPress</span>
+        <span>WooCommerce</span>
+        <span>Tailwind</span>
+        <span>MySQL</span>
+        <span>REST API</span>
+        <span>UI/UX</span>
+        <span>Responsive QA</span>
+        <span>System Workflow</span>
+        <span>PDF Automation</span>
+
+        <span>Laravel</span>
+        <span>React</span>
+        <span>Bootstrap</span>
+        <span>WordPress</span>
+        <span>WooCommerce</span>
+        <span>Tailwind</span>
+        <span>MySQL</span>
+        <span>REST API</span>
+        <span>UI/UX</span>
+        <span>Responsive QA</span>
+        <span>System Workflow</span>
+        <span>PDF Automation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section-space">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="stats-number">6+</div>
+            <p>Years of Experience</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="stats-number">20+</div>
+            <p>Handled Projects</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="stats-number">100%</div>
+            <p>Responsive Focus</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="stats-number">24/7</div>
+            <p>Problem-Solving Mindset</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section-space pt-0">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Developer who understands both code and workflow.</h2>
+          <p class="section-text">
+            I help turn business ideas into actual working systems and websites.
+            My strength is combining clean frontend execution, practical UI/UX,
+            backend-aware thinking, and real-world workflow understanding.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-box glass">
+            <p>
+              I work on websites, internal business systems, responsive fixes, dashboards,
+              API-connected pages, and structured frontend builds. I’m comfortable bridging
+              design, logic, and implementation — which helps me deliver work that is both
+              visually clean and technically practical.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-space pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">Services & strengths I bring to projects</h2>
+        <p class="section-text mx-auto">
+          Built for clients, businesses, teams, and projects that need more than just basic coding.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-window-stack"></i></div>
+            <h5>Frontend Development</h5>
+            <p>
+              Responsive pages, clean layouts, Bootstrap builds, React interfaces,
+              QA improvements, and UI refinements that feel polished.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-diagram-3"></i></div>
+            <h5>Business Systems</h5>
+            <p>
+              Internal tools, workflow pages, forms, dashboards, reports, and modules
+              that support actual business operations.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+            <h5>API Integration</h5>
+            <p>
+              Connecting frontend screens to endpoints, handling dynamic data,
+              and building practical flows for real system use.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-palette"></i></div>
+            <h5>UI/UX Support</h5>
+            <p>
+              Turning mockups into working pages, improving spacing and readability,
+              and helping make designs realistic for implementation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section-space pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title">Project directions you can showcase</h2>
+        <p class="section-text mx-auto">
+          Replace these with your actual handled projects, live client work, or internal systems.
+        </p>
+      </div>
+
+      <div class="project-track-wrap">
+        <div class="project-track">
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
+            <h5>Logistics ERP Modules</h5>
+            <p>
+              Business workflow pages, process visibility, data handling, and scalable module structures.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-globe2"></i></div>
+            <h5>WordPress Client Website</h5>
+            <p>
+              Conversion-focused website builds, layout improvements, and responsive device support.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
+            <h5>Custom API Integration</h5>
+            <p>
+              Frontend to backend endpoint connection with maintainable structure and practical logic.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h5>Reports & Dashboards</h5>
+            <p>
+              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-phone"></i></div>
+            <h5>Responsive UI QA Fixes</h5>
+            <p>
+              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
+            <h5>PDF / Document Workflow</h5>
+            <p>
+              Document generation, print-ready layouts, and system-based output structures.
+            </p>
+          </div>
+
+          <!-- duplicate -->
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
+            <h5>Logistics ERP Modules</h5>
+            <p>
+              Business workflow pages, process visibility, data handling, and scalable module structures.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-globe2"></i></div>
+            <h5>WordPress Client Website</h5>
+            <p>
+              Conversion-focused website builds, layout improvements, and responsive device support.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
+            <h5>Custom API Integration</h5>
+            <p>
+              Frontend to backend endpoint connection with maintainable structure and practical logic.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h5>Reports & Dashboards</h5>
+            <p>
+              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-phone"></i></div>
+            <h5>Responsive UI QA Fixes</h5>
+            <p>
+              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
+            <h5>PDF / Document Workflow</h5>
+            <p>
+              Document generation, print-ready layouts, and system-based output structures.
+            </p>
+          </div>
+        </div>
+        <div class="project-track-2 my-5">
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
+            <h5>Logistics ERP Modules</h5>
+            <p>
+              Business workflow pages, process visibility, data handling, and scalable module structures.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-globe2"></i></div>
+            <h5>WordPress Client Website</h5>
+            <p>
+              Conversion-focused website builds, layout improvements, and responsive device support.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
+            <h5>Custom API Integration</h5>
+            <p>
+              Frontend to backend endpoint connection with maintainable structure and practical logic.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h5>Reports & Dashboards</h5>
+            <p>
+              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-phone"></i></div>
+            <h5>Responsive UI QA Fixes</h5>
+            <p>
+              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
+            <h5>PDF / Document Workflow</h5>
+            <p>
+              Document generation, print-ready layouts, and system-based output structures.
+            </p>
+          </div>
+
+          <!-- duplicate -->
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
+            <h5>Logistics ERP Modules</h5>
+            <p>
+              Business workflow pages, process visibility, data handling, and scalable module structures.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-globe2"></i></div>
+            <h5>WordPress Client Website</h5>
+            <p>
+              Conversion-focused website builds, layout improvements, and responsive device support.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
+            <h5>Custom API Integration</h5>
+            <p>
+              Frontend to backend endpoint connection with maintainable structure and practical logic.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
+            <h5>Reports & Dashboards</h5>
+            <p>
+              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-phone"></i></div>
+            <h5>Responsive UI QA Fixes</h5>
+            <p>
+              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
+            </p>
+          </div>
+
+          <div class="project-card glass">
+            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
+            <h5>PDF / Document Workflow</h5>
+            <p>
+              Document generation, print-ready layouts, and system-based output structures.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-space pt-0">
+    <div class="container">
+      <div class="contact-box glass">
+        <span class="section-tag">Let’s Work Together</span>
+        <h2 class="section-title mb-3">
+          Need a developer who can design, build, and think through the workflow?
+        </h2>
+        <p class="section-text mx-auto mb-4">
+          I help with websites, business systems, frontend execution, responsive improvements,
+          and practical technical solutions for growing teams and clients.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a
+            href="https://www.linkedin.com/in/louie-samaniego-a44001181/"
+            target="_blank"
+            class="btn btn-main"
+          >
+            <i class="bi bi-linkedin me-2"></i>LinkedIn
+          </a>
+
+          <a
+            href="https://samaniegolouie.github.io/"
+            target="_blank"
+            class="btn btn-ghost"
+          >
+            <i class="bi bi-globe me-2"></i>Portfolio
+          </a>
+
+          <a
+            href="mailto:your@email.com"
+            class="btn btn-ghost"
+          >
+            <i class="bi bi-envelope me-2"></i>Email Me
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-person-workspace"></i></div>
+            <h5>Frontend + UI</h5>
+            <p>Clean design execution, component layout, spacing, and responsive device polish.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-cpu"></i></div>
+            <h5>System Thinking</h5>
+            <p>Logic, flow, modules, data visibility, and practical structure for scalable builds.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-lightning-charge"></i></div>
+            <h5>Execution Mindset</h5>
+            <p>Fast implementation, real progress, and practical solutions for actual project needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <p class="mb-0">© 2026 Louie Samaniego.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="https://www.linkedin.com/in/louie-samaniego-a44001181/" target="_blank">LinkedIn</a>
+          <a href="https://samaniegolouie.github.io/" target="_blank">Portfolio</a>
+          <a href="#home">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
