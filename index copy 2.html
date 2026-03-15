@@ -23,9 +23,9 @@
       --line: rgba(255,255,255,0.10);
       --text: #f4f7ff;
       --muted: #b9c2d9;
-      --accent: #7c5cff;
-      --accent-2: #00d4ff;
-      --accent-3: #ff4ecd;
+       --accent: #58a6ff;
+      --accent-2: #22c55e;
+      --accent-3: #f59e0b;
       --shadow: 0 20px 50px rgba(0,0,0,0.28);
     }
 
@@ -178,11 +178,24 @@
       margin-bottom: 18px;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+   .gradient-text {
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 100% center;
+  }
+  }
 
     .hero-text {
       font-size: 1.05rem;
@@ -620,6 +633,53 @@
         padding: 22px;
       }
     }
+       .metric-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+     .metric-label {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+      .highlight {
+      color: var(--accent);
+    }
+    
+    .skill-title {
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+   .mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mini-list li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    .mini-list i {
+      color: var(--accent-2);
+      margin-top: 3px;
+    }
+
+
+
   </style>
 </head>
 <body>
@@ -667,7 +727,7 @@
         <div class="col-lg-6">
           <div class="hero-badge">
             <i class="bi bi-cpu"></i>
-            Full-Stack Developer • UI/UX • Systems • AI-Ready Workflow
+             Full-Stack Developer • System Builder • WordPress + Business Platforms 
           </div>
 
           <h1 class="hero-title">
@@ -676,9 +736,11 @@
           </h1>
 
           <p class="hero-text">
-            I’m Louie Samaniego, a developer from the Philippines focused on
-            responsive websites, business systems, frontend execution, API integrations,
-            and practical solutions that help teams and clients move faster.
+            I’m Louie Samaniego,  I build enterprise systems, high-performance websites, and scalable digital solutions
+            using <span class="highlight">WordPress</span>, <span class="highlight">Laravel</span>,
+            <span class="highlight">React</span>, <span class="highlight">PHP</span>, and modern web technologies.
+            My focus is creating practical systems for operations, dashboards, document workflows,
+            and conversion-driven websites.
           </p>
 
           <div class="d-flex flex-wrap gap-3">
@@ -689,8 +751,10 @@
           </div>
 
           <div class="hero-mini">
+            <span>Php</span>
             <span>Laravel</span>
             <span>React</span>
+            <span>Tailwind</span>
             <span>Bootstrap</span>
             <span>WordPress</span>
             <span>API Integration</span>
@@ -742,7 +806,48 @@
     </div>
   </section>
 
-  <!-- TICKER -->
+
+
+  <!-- STATS -->
+  <section class="section-space">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass ">
+            <div class="metric-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="stats-number">6+</div>          
+            <p class="metric-label">Years of development experience across websites, business tools, and internal systems.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass">
+             <div class="metric-icon"><i class="bi bi-kanban"></i></div>
+            <div class="stats-number">40+</div>
+            <p class="metric-label">Projects handled in WordPress, frontend, backend, UI, and automation-related work.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass">
+            <div class="metric-icon"><i class="bi bi-code-slash"></i></div>
+            <div class="stats-number">Full-Stack</div>
+            <p class="metric-label">Frontend and backend execution from layout to logic, APIs, workflows, and reports.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass ">
+            <div class="metric-icon"><i class="bi bi-diagram-3"></i></div>
+            <div class="stats-number">Systems</div>
+            <p class="metric-label">Enterprise-style thinking for dashboards, logistics processes, and document handling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- TICKER -->
   <section class="py-2">
     <div class="ticker-wrap">
       <div class="ticker">
@@ -775,40 +880,106 @@
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="section-space">
+
+
+  <section id="stack" class="my-5">
     <div class="container">
+      <div class="text-center mb-5">
+        <p class="hero-badge">tech_stack[]</p>
+        <h2 class="section-title">Tools I  use to build and deliver</h2>
+        <p class="section-subtitle">
+          From WordPress builds and frontend interfaces to backend systems, APIs, and printable document flows.
+        </p>
+      </div>
+
       <div class="row g-4">
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="stats-card glass text-center">
-            <div class="stats-number">6+</div>
-            <p>Years of Experience</p>
+            <div class="metric-icon"><i class="bi bi-wordpress"></i></div>
+            <p class="skill-title">WordPress</p>
           </div>
         </div>
-
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="stats-card glass text-center">
-            <div class="stats-number">20+</div>
-            <p>Handled Projects</p>
+            <div class="metric-icon"><i class="bi bi-grid-1x2"></i></div>
+            <p class="skill-title">Elementor</p>
           </div>
         </div>
-
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="stats-card glass text-center">
-            <div class="stats-number">100%</div>
-            <p>Responsive Focus</p>
+            <div class="metric-icon"><i class="bi bi-boxes"></i></div>
+            <p class="skill-title">Laravel</p>
           </div>
         </div>
-
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="stats-card glass text-center">
-            <div class="stats-number">24/7</div>
-            <p>Problem-Solving Mindset</p>
+            <div class="metric-icon"><i class="bi bi-filetype-jsx"></i></div>
+            <p class="skill-title">React</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-filetype-php"></i></div>
+            <p class="skill-title">PHP</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-filetype-js"></i></div>
+            <p class="skill-title">JavaScript</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-database"></i></div>
+            <p class="skill-title">MySQL</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-bootstrap"></i></div>
+            <p class="skill-title">Bootstrap</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-palette2"></i></div>
+            <p class="skill-title">Tailwind CSS</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-code-square"></i></div>
+            <p class="skill-title">REST API</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-file-earmark-pdf"></i></div>
+            <p class="skill-title">PDF Generation</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-github"></i></div>
+            <p class="skill-title">GitHub</p>
           </div>
         </div>
       </div>
+
+      <div class="section-divider"></div>
     </div>
   </section>
+
+
+
+
+
+
+
+
+
+
 
   <!-- ABOUT -->
   <section id="about" class="section-space pt-0">
@@ -816,7 +987,7 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-5">
           <span class="section-tag">About Me</span>
-          <h2 class="section-title">Developer who understands both code and workflow.</h2>
+          <h2 class="section-title">Developer, system builder, and practical problem solver</h2>
           <p class="section-text">
             I help turn business ideas into actual working systems and websites.
             My strength is combining clean frontend execution, practical UI/UX,
@@ -827,11 +998,20 @@
         <div class="col-lg-7">
           <div class="about-box glass">
             <p>
-              I work on websites, internal business systems, responsive fixes, dashboards,
-              API-connected pages, and structured frontend builds. I’m comfortable bridging
-              design, logic, and implementation — which helps me deliver work that is both
-              visually clean and technically practical.
+               I’m a Full-Stack Developer based in the Philippines with hands-on experience in
+              <span class="highlight">WordPress</span>, <span class="highlight">Elementor</span>,
+              <span class="highlight">Laravel</span>, <span class="highlight">React</span>,
+              <span class="highlight">PHP</span>, <span class="highlight">JavaScript</span>,
+              <span class="highlight">MySQL</span>, and UI implementation using Bootstrap and modern CSS workflows.
             </p>
+            <h5 class="fw-bold mt-3 mb-4 mono text-light">Core Focus</h5>
+            <ul class="mini-list">
+              <li><i class="bi bi-check2-circle"></i><span>Business systems, dashboards, and workflow-based modules</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>WordPress + Elementor websites with custom frontend improvements</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>PDF/document automation for manifests, reports, and print-ready output</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>HTML email template design for campaigns, onboarding, and updates</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Remote collaboration with agencies, teams, and international clients</span></li>
+            </ul>
           </div>
         </div>
       </div>
