@@ -170,6 +170,18 @@
       font-size: 14px;
       margin-bottom: 20px;
     }
+    .hero-badge-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: #a7deff;
+      font-size: 10px;
+      margin-bottom: 20px;
+    }
 
     .hero-title {
       font-size: clamp(2.6rem, 6vw, 4rem);
@@ -677,10 +689,208 @@
       color: var(--accent-2);
       margin-top: 3px;
     }
+.project-image{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.project-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.design-thumb,
+.video-thumb {
+  width: 100%;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+}
+
+.design-thumb img,
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Graphic design cards */
+.design-card {
+  height: 100%;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124,92,255,0.32);
+}
+
+.design-card h5 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.design-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* Video cards */
+.video-card {
+  height: 100%;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.28);
+}
+
+.video-card h5 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.video-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.video-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  transition: 0.3s ease;
+}
+
+.video-link-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Highlight box for lifestyle intro */
+.lifestyle-box {
+  padding: 30px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.12), rgba(0,212,255,0.08));
+  border: 1px solid rgba(255,255,255,0.10);
+  margin-bottom: 28px;
+}
+
+.lifestyle-box p {
+  color: var(--muted);
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .design-thumb,
+  .video-thumb {
+    height: 190px;
+  }
+}
+   .github-box {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+       .github-box::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(88,166,255,.14), transparent 70%);
+      right: -40px;
+      top: -40px;
+      pointer-events: none;
+    }
+.code-window{
+  padding:30px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#0f172a,#020617);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.code-window pre{
+  margin:0;
+  color:#9cdcfe;
+  font-family: "Fira Code", monospace;
+  font-size:14px;
+  line-height:1.8;
+  white-space:pre-wrap;
+}
+
+.code-window code{
+  color:#9cdcfe;
+}
+
+.dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .code-box {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .95rem;
+      line-height: 1.9;
+      color: #c9d1d9;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .code-key { color: #79c0ff; }
+    .code-string { color: #a5d6ff; }
+    .code-array { color: #7ee787; }
+    .code-value { color: #f2cc60; }
+
+
+
 
 
 
   </style>
+
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2JDJFWNDC0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2JDJFWNDC0');
+</script>
+    
 </head>
 <body>
 
@@ -1082,213 +1292,527 @@
     <div class="container">
       <div class="text-center mb-5">
         <span class="section-tag">Featured Work</span>
-        <h2 class="section-title">Project directions you can showcase</h2>
+        <h2 class="section-title">Handled projects in motion </h2>
         <p class="section-text mx-auto">
-          Replace these with your actual handled projects, live client work, or internal systems.
+          A moving showcase of systems, dashboards, websites, and automation work 
+          designed to give a faster visual review of the kinds of projects I handle. 
         </p>
       </div>
 
       <div class="project-track-wrap">
         <div class="project-track">
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
-            <h5>Logistics ERP Modules</h5>
+            <div class="project-image">
+              <img src="assets/img/valueplus-logo.png" alt="ValuePlus">
+            </div>
+            <h5>ValuePlus</h5>
+            <h6 class="hero-badge-2">Frontend • Plugin Integration</h6>
             <p>
-              Business workflow pages, process visibility, data handling, and scalable module structures.
+              Implemented frontend components connected to rental car backend logic.
             </p>
           </div>
-
+       
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-globe2"></i></div>
-            <h5>WordPress Client Website</h5>
+            <div class="project-image">
+              <img src="assets/img/sunlife-logo.png" alt="SunLifeGrepa">
+            </div>
+            <h5>Sun Life Grepa</h5>
+            <h6 class="hero-badge-2">Frontend • API Integration • Security Hardening</h6>
             <p>
-              Conversion-focused website builds, layout improvements, and responsive device support.
+              Built frontend components, integrated APIs, and handled system setup 
+              including security vulnerability fixes.
             </p>
           </div>
-
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
-            <h5>Custom API Integration</h5>
+            <div class="project-image">
+              <img src="assets/img/ambiance.png"alt="AmbianceLight">
+            </div>
+            <h5>Ambiance Lighting For You</h5>
+            <h6 class="hero-badge-2">UI/UX Design • Website Development</h6>
             <p>
-              Frontend to backend endpoint connection with maintainable structure and practical logic.
+              Designed the UI/UX and developed the full website with sample 
+              API integrations for product functionality.
             </p>
           </div>
-
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
-            <h5>Reports & Dashboards</h5>
+            <div class="project-image">
+              <img src="assets/img/enadoc-logo.png"alt="Enadoc">
+            </div>
+            <h5>Enadoc</h5>
+            <h6 class="hero-badge-2">Frontend • System Restoration • SMTP Setup</h6>
             <p>
-              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
+              Rebuilt frontend structure, restored legacy project data, and 
+              configured SMTP and security updates.
             </p>
           </div>
-
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-phone"></i></div>
-            <h5>Responsive UI QA Fixes</h5>
+            <div class="project-image">
+              <img src="assets/img/tog.png"alt="TechoneGlobal">
+            </div>
+            <h5>TechOne Global</h5>
+            <h6 class="hero-badge-2">Frontend • System Recovery • SMTP Setup</h6>
             <p>
-              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
+              Rebuilt frontend pages, restored previous project 
+              environment, and configured SMTP and security fixes.
             </p>
           </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
-            <h5>PDF / Document Workflow</h5>
-            <p>
-              Document generation, print-ready layouts, and system-based output structures.
-            </p>
-          </div>
-
           <!-- duplicate -->
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
-            <h5>Logistics ERP Modules</h5>
+              <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/valueplus-logo.png" alt="ValuePlus">
+            </div>
+            <h5>ValuePlus</h5>
+            <h6 class="hero-badge-2">Frontend • Plugin Integration</h6>
             <p>
-              Business workflow pages, process visibility, data handling, and scalable module structures.
+              Implemented frontend components connected to rental car backend logic.
             </p>
           </div>
+       
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/sunlife-logo.png" alt="SunLifeGrepa">
+            </div>
+            <h5>Sun Life Grepa</h5>
+            <h6 class="hero-badge-2">Frontend • API Integration • Security Hardening</h6>
+            <p>
+              Built frontend components, integrated APIs, and handled system setup 
+              including security vulnerability fixes.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/ambiance.png"alt="AmbianceLight">
+            </div>
+            <h5>Ambiance Lighting For You</h5>
+            <h6 class="hero-badge-2">UI/UX Design • Website Development</h6>
+            <p>
+              Designed the UI/UX and developed the full website with sample 
+              API integrations for product functionality.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/enadoc-logo.png"alt="Enadoc">
+            </div>
+            <h5>Enadoc</h5>
+            <h6 class="hero-badge-2">Frontend • System Restoration • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend structure, restored legacy project data, and 
+              configured SMTP and security updates.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/tog.png"alt="TechoneGlobal">
+            </div>
+            <h5>TechOne Global</h5>
+            <h6 class="hero-badge-2">Frontend • System Recovery • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend pages, restored previous project 
+              environment, and configured SMTP and security fixes.
+            </p>
+          </div>
+        </div> 
+          
+         
 
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-globe2"></i></div>
-            <h5>WordPress Client Website</h5>
-            <p>
-              Conversion-focused website builds, layout improvements, and responsive device support.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
-            <h5>Custom API Integration</h5>
-            <p>
-              Frontend to backend endpoint connection with maintainable structure and practical logic.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
-            <h5>Reports & Dashboards</h5>
-            <p>
-              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-phone"></i></div>
-            <h5>Responsive UI QA Fixes</h5>
-            <p>
-              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
-            <h5>PDF / Document Workflow</h5>
-            <p>
-              Document generation, print-ready layouts, and system-based output structures.
-            </p>
-          </div>
-        </div>
         <div class="project-track-2 my-5">
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
-            <h5>Logistics ERP Modules</h5>
-            <p>
-              Business workflow pages, process visibility, data handling, and scalable module structures.
-            </p>
-          </div>
-
+              <div class="project-image">
+                <img src="assets/img/Dewberry.png"alt="Dewberry">
+              </div>
+              <h5>Dewberry</h5>
+              <h6 class="hero-badge-2">Frontend Development</h6>
+                <p>
+                  Developed frontend components and small integrations with backend plugin logic.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-globe2"></i></div>
-            <h5>WordPress Client Website</h5>
-            <p>
-              Conversion-focused website builds, layout improvements, and responsive device support.
-            </p>
-          </div>
-
+              <div class="project-image">
+                <img src="assets/img/bright-solutions-final.png"alt="BrightSolutions">
+              </div>
+              <h5>Bright Solutions</h5>
+              <h6 class="hero-badge-2">Frontend Revamp • Web App Integration</h6>
+                <p>
+                  Redesigned the website and integrated the Senior Living Generative AI Toolkit web application.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
-            <h5>Custom API Integration</h5>
-            <p>
-              Frontend to backend endpoint connection with maintainable structure and practical logic.
-            </p>
-          </div>
-
+              <div class="project-image">
+                <img src="assets/img/executive_help_now_logo.jpg"alt="ExecutiveHelpNow">
+              </div>
+              <h5>Executive Help Now</h5>
+              <h6 class="hero-badge-2">Frontend • Custom System Integration</h6>
+                <p>
+                  Implemented frontend features and connected the Talent Finder web application
+                  to the website.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
-            <h5>Reports & Dashboards</h5>
-            <p>
-              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
-            </p>
-          </div>
-
+              <div class="project-image">
+                <img src="assets/img/Clean-Go-Green-Go-logo.png"alt="CleanGoGreenGo">
+              </div>
+              <h5>Clean Go Green Go</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Developed frontend layout and configured WooCommerce for e-commerce functionality.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-phone"></i></div>
-            <h5>Responsive UI QA Fixes</h5>
-            <p>
-              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
-            </p>
-          </div>
-
+              <div class="project-image">
+                <img src="assets/img/wineandroses-logo.png"alt="WineandRoses">
+              </div>
+              <h5>Wine and Roses</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Built responsive frontend pages and implemented WooCommerce store setup.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
-            <h5>PDF / Document Workflow</h5>
-            <p>
-              Document generation, print-ready layouts, and system-based output structures.
-            </p>
-          </div>
+              <div class="project-image">
+                <img src="assets/img/fundraisingspree-logo.png"alt="FundraisingSpree">
+              </div>
+              <h5>Fundraising Spree</h5>
+              <h6 class="hero-badge-2">Frontend • Backend Plugin Integration</h6>
+                <p>
+                 Developed frontend pages and integrated backend plugin logic for campaign workflows.
+                </p>
+         </div>          
 
           <!-- duplicate -->
+            <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Dewberry.png"alt="Dewberry">
+              </div>
+              <h5>Dewberry</h5>
+              <h6 class="hero-badge-2">Frontend Development</h6>
+                <p>
+                  Developed frontend components and small integrations with backend plugin logic.
+                </p>
+         </div>
           <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-box-seam"></i></div>
-            <h5>Logistics ERP Modules</h5>
-            <p>
-              Business workflow pages, process visibility, data handling, and scalable module structures.
-            </p>
-          </div>
+              <div class="project-image">
+                <img src="assets/img/bright-solutions-final.png"alt="BrightSolutions">
+              </div>
+              <h5>Bright Solutions</h5>
+              <h6 class="hero-badge-2">Frontend Revamp • Web App Integration</h6>
+                <p>
+                  Redesigned the website and integrated the Senior Living Generative AI Toolkit web application.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/executive_help_now_logo.jpg"alt="ExecutiveHelpNow">
+              </div>
+              <h5>Executive Help Now</h5>
+              <h6 class="hero-badge-2">Frontend • Custom System Integration</h6>
+                <p>
+                  Implemented frontend features and connected the Talent Finder web application
+                  to the website.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Clean-Go-Green-Go-logo.png"alt="CleanGoGreenGo">
+              </div>
+              <h5>Clean Go Green Go</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Developed frontend layout and configured WooCommerce for e-commerce functionality.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/wineandroses-logo.png"alt="WineandRoses">
+              </div>
+              <h5>Wine and Roses</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Built responsive frontend pages and implemented WooCommerce store setup.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/fundraisingspree-logo.png"alt="FundraisingSpree">
+              </div>
+              <h5>Fundraising Spree</h5>
+              <h6 class="hero-badge-2">Frontend • Backend Plugin Integration</h6>
+                <p>
+                 Developed frontend pages and integrated backend plugin logic for campaign workflows.
+                </p>
+         </div>
+       
 
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-globe2"></i></div>
-            <h5>WordPress Client Website</h5>
-            <p>
-              Conversion-focused website builds, layout improvements, and responsive device support.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-hdd-network"></i></div>
-            <h5>Custom API Integration</h5>
-            <p>
-              Frontend to backend endpoint connection with maintainable structure and practical logic.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-earmark-richtext"></i></div>
-            <h5>Reports & Dashboards</h5>
-            <p>
-              Data-driven views, summary cards, graphs, and business-friendly presentation layers.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-phone"></i></div>
-            <h5>Responsive UI QA Fixes</h5>
-            <p>
-              Mobile, tablet, and desktop improvements focused on visual consistency and smoother UX.
-            </p>
-          </div>
-
-          <div class="project-card glass">
-            <div class="icon-box"><i class="bi bi-file-pdf"></i></div>
-            <h5>PDF / Document Workflow</h5>
-            <p>
-              Document generation, print-ready layouts, and system-based output structures.
-            </p>
-          </div>
         </div>
       </div>
 
     </div>
   </section>
+
+<!-- PLAYGROUND / DEV LAB -->
+<section id="playground" class="section-space pt-0">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-6">
+
+        <span class="section-tag">Developer Lab</span>
+
+        <h2 class="section-title">
+          Portfolio + Playground in one developer showcase
+        </h2>
+
+        <p class="section-text mb-4">
+          This section merges my technical portfolio with my unfinished playground concept.
+          It shows not only the systems and websites I build, but also the design thinking,
+          document layouts, UI experiments, and technical exploration behind real project work.
+        </p>
+
+        <ul class="mini-list mb-4">
+          <li><i class="bi bi-check2-circle"></i> UI component experiments</li>
+          <li><i class="bi bi-check2-circle"></i> System workflow mockups</li>
+          <li><i class="bi bi-check2-circle"></i> Document layout testing (PDF / reports)</li>
+          <li><i class="bi bi-check2-circle"></i> Interface concepts and technical ideas</li>
+        </ul>
+
+        <a href="https://samaniegolouie.github.io/playgroundcode/" 
+           target="_blank" 
+           class="btn btn-main">
+          <i class="bi bi-terminal me-2"></i>
+          Open Developer Playground
+        </a>
+
+      </div>
+
+
+      <!-- RIGHT CODE CARD -->
+      <div class="col-lg-6">
+
+        <div class="code-window glass">
+
+ <div class="hero-code">
+            <div class="code-top">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+
+            <div class="code-box">
+<span class="code-key">const</span> developer = {
+  <span class="code-key">name</span>: <span class="code-string">"Louie Samaniego"</span>,
+  <span class="code-key">focus</span>: <span class="code-string">"UI, Documents, and Creative Frontend Work"</span>,
+  <span class="code-key">location</span>: <span class="code-string">"Philippines"</span>,
+  <span class="code-key">stack</span>: [
+    <span class="code-array">"UI/UX Design"</span>,
+    <span class="code-array">"PDFMake.js"</span>,
+    <span class="code-array">"FPDF"</span>,
+    <span class="code-array">"React PDF"</span>,
+    <span class="code-array">"React PDF"</span>
+  ],
+  <span class="code-key">experiments</span>: [
+    <span class="code-array">"Layout Concepts"</span>,
+    <span class="code-array">"Document Workflows"</span>,
+    <span class="code-array">"Printable Reports"</span>,
+    <span class="code-array">"Email Template Design"</span>
+  ],
+  <span class="code-key">status</span>: <span class="code-value">"Built for exploration and real project support"</span>
+};
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+    <!-- GRAPHIC DESIGN -->
+<section id="graphic-design" class="section-space pt-0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Creative Work</span>
+      <h2 class="section-title">Graphic Design</h2>
+      <p class="section-text mx-auto">
+        A few selected artworks and visual materials I created for marketing, branding,
+        promotional content, and digital campaigns.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/ilocos-1.jpg" alt="Graphic Design 1">
+          </div>
+          <h5>Social Media Campaign Design</h5>
+          <p>
+            Marketing artwork created for online promotions, announcements, and social media branding.
+          </p>
+          <a href="assets/img/ilocos-1.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/apprentice.jpg" alt="Graphic Design 2">
+          </div>
+          <h5>Promotional Poster Design</h5>
+          <p>
+            Poster layout focused on typography, visual hierarchy, and promotional presentation.
+          </p>
+          <a href="assets/img/apprentice.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/Digital charcoal drawing.jpg" alt="Graphic Design 3">
+          </div>
+          <h5>Charcoal Digital Artwork</h5>
+          <p>
+            Digital charcoal-style artwork exploring texture, contrast, and expressive visual composition.
+          </p>
+          <a href="assets/img/Digital charcoal drawing.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/sportfest.jpg" alt="Graphic Design 4">
+          </div>
+          <h5>Event / Promo Artwork</h5>
+          <p>
+            A creative layout designed for announcements, event promotions, and branded visuals.
+          </p>
+          <a href="assets/img/sportfest.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/Ultimate.jpg" alt="Graphic Design 5">
+          </div>
+          <h5>Marketing Banner Design</h5>
+          <p>
+            Banner design focused on readability, strong visuals, and digital campaign support.
+          </p>
+          <a href="assets/img/Ultimate.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/puppet.jpg" alt="Graphic Design 6">
+          </div>
+          <h5>Creative Visual Composition</h5>
+          <p>
+            A selected artwork showing my background in visual design and creative composition.
+          </p>
+          <a href="assets/img/puppet.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIFESTYLE / VIDEO -->
+<section id="lifestyle" class="section-space pt-0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Beyond Development</span>
+      <h2 class="section-title">Life Outside Work</h2>
+      <p class="section-text mx-auto">
+        Outside development and design, I also enjoy documenting simple moments through short videos,
+        outdoor activities, biking, hiking, and travel experiences.
+      </p>
+    </div>
+
+    <div class="lifestyle-box glass">
+      <p>
+        I like building digital solutions, but I also value real-life experiences outside the screen.
+        This section gives a small look at my lifestyle, creative side, and personal interests through
+        selected video content and moments I enjoy capturing.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/bikeLife.JPG" alt="Biking Video">
+          </div>
+          <h5>Biking Day</h5>
+          <p>
+            A short ride video capturing outdoor cycling, movement, and weekend activity.
+          </p>
+          <a href="https://www.facebook.com/reel/600980682407825" target="_blank" class="video-link-btn">
+            <i class="bi bi-youtube"></i> Watch Video
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/pulag.jpg" alt="Hiking Video">
+          </div>
+          <h5>Mountain Hiking</h5>
+          <p>
+            A short outdoor clip featuring mountain views, trail moments, and travel experience.
+          </p>
+          <a href="https://www.youtube.com/watch?v=2EaG7jK7hQg" target="_blank" class="video-link-btn">
+            <i class="bi bi-facebook"></i> View Clip
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/dayinalife.JPG" alt="Day in a Life Video">
+          </div>
+          <h5>Day in the Life</h5>
+          <p>
+            A simple personal video showing daily moments, movement, and lifestyle outside work.
+          </p>
+          <a href="https://www.facebook.com/reel/4362794837337431" target="_blank" class="video-link-btn">
+            <i class="bi bi-play-circle"></i> Watch Video
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- CONTACT -->
   <section id="contact" class="section-space pt-0">
@@ -1319,13 +1843,18 @@
           >
             <i class="bi bi-globe me-2"></i>Portfolio
           </a>
-
           <a
-            href="mailto:your@email.com"
+            href="https://github.com/samaniegolouie"
+            target="_blank"
             class="btn btn-ghost"
           >
-            <i class="bi bi-envelope me-2"></i>Email Me
+            <i class="bi bi-globe me-2"></i>Github
           </a>
+
+         <a href="mailto:louie2samaniego2@gmail.com?subject=Project Inquiry"
+            class="btn btn-ghost">
+            <i class="bi bi-envelope me-2"></i>Email Me
+         </a>
         </div>
       </div>
 
@@ -1356,6 +1885,8 @@
       </div>
     </div>
   </section>
+
+
 
   <!-- FOOTER -->
   <footer class="footer">

@@ -1,27 +1,887 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>My Online Portfolio</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Open Sans -->
-        <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <!-- <link rel="stylesheet" href="assets/css/font-awesome.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css"> -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Louie Samaniego | Developer Portfolio</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <style>
+    :root {
+      --bg-1: #070b14;
+      --bg-2: #0d1322;
+      --bg-3: #10182b;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.10);
+      --text: #f4f7ff;
+      --muted: #b9c2d9;
+       --accent: #58a6ff;
+      --accent-2: #22c55e;
+      --accent-3: #f59e0b;
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 92, 255, 0.18), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(0, 212, 255, 0.16), transparent 20%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2) 45%, var(--bg-3));
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .section-space {
+      padding: 90px 0;
+    }
+
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+    }
+
+    .navbar {
+      background: rgba(9, 13, 24, 0.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff !important;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.72) !important;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+    }
+
+    .btn-main {
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 13px 24px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 24px rgba(124, 92, 255, 0.25);
+      transition: 0.3s ease;
+    }
+
+    .btn-main:hover {
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 13px 24px;
+      transition: 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 95px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      animation: floatGlow 8s ease-in-out infinite;
+    }
+
+    .hero::before {
+      background: rgba(124, 92, 255, 0.22);
+      top: 40px;
+      left: -80px;
+    }
+
+    .hero::after {
+      background: rgba(0, 212, 255, 0.18);
+      right: -90px;
+      bottom: 20px;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatGlow {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.05); }
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: #a7deff;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .hero-badge-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: #a7deff;
+      font-size: 10px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      line-height: 1.03;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+   .gradient-text {
+  background: linear-gradient(90deg, #ff6a00, #ee0979, #00c6ff);
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 100% center;
+  }
+  }
+
+    .hero-text {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .hero-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-mini span {
+      font-size: 13px;
+      color: #dce4ff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .keyboard-scene {
+      perspective: 1500px;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .keyboard-board {
+      width: 100%;
+      max-width: 580px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      padding: 28px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow:
+        0 34px 70px rgba(0,0,0,0.34),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+      transform: rotateX(58deg) rotateZ(-24deg);
+      animation: floatBoard 5.2s ease-in-out infinite;
+      position: relative;
+    }
+
+    .keyboard-board::before {
+      content: "";
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      bottom: -24px;
+      height: 38px;
+      background: rgba(124, 92, 255, 0.22);
+      filter: blur(28px);
+      z-index: -1;
+    }
+
+    .keyboard-board::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 24px;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    @keyframes floatBoard {
+      0%, 100% {
+        transform: rotateX(58deg) rotateZ(-24deg) translateY(0px);
+      }
+      50% {
+        transform: rotateX(58deg) rotateZ(-24deg) translateY(-10px);
+      }
+    }
+
+    .key {
+      height: 62px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #edf2ff;
+      background: linear-gradient(180deg, #1c2439, #101624);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 8px 0 #0a0f1b,
+        0 15px 18px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+    }
+
+    .key:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 0 #0a0f1b,
+        0 20px 22px rgba(0,0,0,0.30);
+    }
+
+    .key-space {
+      grid-column: span 6;
+      height: 64px;
+    }
+
+    .key-glow {
+      background: linear-gradient(180deg, #2d1f61, #141c33);
+      border: 1px solid rgba(124, 92, 255, 0.52);
+      box-shadow:
+        0 8px 0 #0a0f1b,
+        0 0 18px rgba(124, 92, 255, 0.35),
+        0 0 38px rgba(0, 212, 255, 0.10);
+    }
+
+    .key-pulse {
+      animation: pressKey 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pressKey {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(4px);
+        box-shadow:
+          0 4px 0 #0a0f1b,
+          0 8px 14px rgba(0,0,0,0.26),
+          0 0 16px rgba(124, 92, 255, 0.35);
+      }
+    }
+
+    .floating-label {
+      position: absolute;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dde6ff;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+      animation: floatTag 4.5s ease-in-out infinite;
+    }
+
+    .floating-label.one {
+      top: 12%;
+      left: 3%;
+    }
+
+    .floating-label.two {
+      top: 18%;
+      right: 8%;
+      animation-delay: 1s;
+    }
+
+    .floating-label.three {
+      bottom: 2%;
+      left: 8%;
+      animation-delay: 2s;
+    }
+
+    .floating-label.four {
+      bottom: 10%;
+      right: 2%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes floatTag {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .stats-card,
+    .service-card,
+    .project-card,
+    .contact-card {
+      height: 100%;
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .stats-card:hover,
+    .service-card:hover,
+    .project-card:hover,
+    .contact-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,92,255,0.32);
+    }
+
+    .stats-number {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-tag {
+      color: #9ddcff;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .icon-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(0,212,255,.14));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .service-card p,
+    .project-card p,
+    .contact-card p,
+    .stats-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .ticker {
+      display: inline-flex;
+      gap: 40px;
+      width: max-content;
+      animation: tickerMove 20s linear infinite;
+      font-weight: 700;
+      color: #e3eaff;
+    }
+
+    @keyframes tickerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .ticker span {
+      opacity: 0.92;
+    }
+
+    .project-track-wrap {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+    }
+
+    .project-track {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: scrollProjects 28s linear infinite;
+    }
+    .project-track-2 {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: scrollProjects-2 28s linear infinite;
+    }
+
+    .project-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollProjects {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    @keyframes scrollProjects-2 {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
+
+    .project-card {
+      width: 330px;
+      min-height: 235px;
+    }
+
+    .project-card h5,
+    .service-card h5,
+    .contact-card h5 {
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .about-box {
+      padding: 36px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.10), rgba(0,212,255,0.08));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      padding: 40px;
+      text-align: center;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.14), rgba(0,212,255,0.10));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .footer {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.65);
+    }
+
+    .footer a {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+    .logo-nav{
+  height:32px;
+  width:auto;
+}
+
+    @media (max-width: 1199px) {
+      .keyboard-board {
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .hero {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 70px;
+      }
+
+      .keyboard-scene {
+        min-height: 420px;
+      }
+
+      .keyboard-board {
+        max-width: 430px;
+        gap: 10px;
+        padding: 20px;
+        transform: rotateX(54deg) rotateZ(-18deg);
+      }
+
+      .key {
+        height: 50px;
+        font-size: 12px;
+      }
+
+      .key-space {
+        height: 54px;
+      }
+
+      .floating-label {
+        display: none;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .section-space {
+        padding: 75px 0;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-text {
+        font-size: 0.98rem;
+      }
+
+      .project-card {
+        width: 280px;
+      }
+
+      .keyboard-board {
+        max-width: 345px;
+        gap: 8px;
+        padding: 14px;
+        border-radius: 22px;
+      }
+
+      .key {
+        height: 42px;
+        border-radius: 11px;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+      }
+
+      .key-space {
+        height: 46px;
+      }
+
+      .stats-card,
+      .service-card,
+      .project-card,
+      .contact-card,
+      .contact-box,
+      .about-box {
+        padding: 22px;
+      }
+    }
+       .metric-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(88,166,255,.12);
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+     .metric-label {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.7;
+    }
+      .highlight {
+      color: var(--accent);
+    }
+    
+    .skill-title {
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+   .mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mini-list li {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    .mini-list i {
+      color: var(--accent-2);
+      margin-top: 3px;
+    }
+.project-image{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.project-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.design-thumb,
+.video-thumb {
+  width: 100%;
+  height: 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+}
+
+.design-thumb img,
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Graphic design cards */
+.design-card {
+  height: 100%;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.design-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124,92,255,0.32);
+}
+
+.design-card h5 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.design-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* Video cards */
+.video-card {
+  height: 100%;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.28);
+}
+
+.video-card h5 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.video-card p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.video-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  transition: 0.3s ease;
+}
+
+.video-link-btn:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+
+/* Highlight box for lifestyle intro */
+.lifestyle-box {
+  padding: 30px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.12), rgba(0,212,255,0.08));
+  border: 1px solid rgba(255,255,255,0.10);
+  margin-bottom: 28px;
+}
+
+.lifestyle-box p {
+  color: var(--muted);
+  margin-bottom: 0;
+  line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .design-thumb,
+  .video-thumb {
+    height: 190px;
+  }
+}
+   .github-box {
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+       .github-box::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(88,166,255,.14), transparent 70%);
+      right: -40px;
+      top: -40px;
+      pointer-events: none;
+    }
+.code-window{
+  padding:30px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#0f172a,#020617);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.code-window pre{
+  margin:0;
+  color:#9cdcfe;
+  font-family: "Fira Code", monospace;
+  font-size:14px;
+  line-height:1.8;
+  white-space:pre-wrap;
+}
+
+.code-window code{
+  color:#9cdcfe;
+}
+
+.dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .code-box {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .95rem;
+      line-height: 1.9;
+      color: #c9d1d9;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .code-key { color: #79c0ff; }
+    .code-string { color: #a5d6ff; }
+    .code-array { color: #7ee787; }
+    .code-value { color: #f2cc60; }
 
 
 
-    <!-- Google tag (gtag.js) -->
+
+
+
+  </style>
+
+      <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JDJFWNDC0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -31,222 +891,1017 @@
   gtag('config', 'G-2JDJFWNDC0');
 </script>
     
-    </head>
-    <body>
-       
-         <!-- Navigation -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-            <div class="container">
-              <a class="navbar-brand" href="index.html">My Online Portfolio</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="design.html">Graphic Design</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="project.html">Project</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
-          
-        
+</head>
+<body>
 
-        <!-- Banner -->
-        <section class="banner position-relative overflow-hidden py-5">
-            <div class="banner-overlay position-absolute pt-10">
-                <img src="assets/img/Group-162.png" class="frontliner img-fluid"  />
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="d-flex justify-content-center justify-content-lg-start">
-                            <img src="assets/img/logo.png" class="cornelia-logo" style="padding-top:5%;"/>
-                        </div>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-                
-                <div class="row mt-5">
-                    <div class="col col-sm-8 col-lg-6">
-                        <h2 class="text-white font-weight-bold">Hello I’m Louie Samaniego, your </h2>
-                        <p class="text-white">Web Developer & Frontend Developer</p>
-                        <a href="#"><button class="btn-cc btn-secondary text-uppercase font-weight-semibold">Learn More</button> </a>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <img src="assets/img/5.png" class="logo-nav" alt="Louie Logo">
+        <span>Louie.dev</span>
+      </a>
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+      >
+        <i class="bi bi-list fs-1 text-white"></i>
+      </button>
 
-        </section><!-- /.banner -->
-
-        <!-- Useful Links -->
-        <section class="useful-links py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-9 col-xl-4 mb-5 mb-xl-0">
-                        <div class="d-flex flex-column flex-md-row">
-                            <div class="useful-links-icon mr-md-4 mb-4 text-center text-md-left">
-                                <img src="assets/img/Group 163.png" />
-                            </div>
-                            <div class="useful-links-content text-center text-md-left" class="img-fluid">
-                                <h4 class="text-black font-weight-semibold">About Myself</h4>
-                                <p>I am Louie B. Samaniego I'm a graduate From Pamanatasan ng Lungsod ng Muntinlupa. <a href="about.html" class="text-primary-cc nowrap">Learn more…</a></p>
-                            </div>  
-                        </div><!-- /.d-flex -->
-                    </div><!-- /.col -->
-
-                    <div class="col-12 col-lg-9 col-xl-4 mb-5 mb-xl-0">
-                        <div class="d-flex flex-column flex-md-row">
-                            <div class="useful-links-icon mr-md-4 mb-4 text-center text-md-left">
-                                <img src="assets/img/Group 164.png" />
-                            </div>
-                            <div class="useful-links-content text-center text-md-left" class="img-fluid">
-                                <h4 class="text-black font-weight-semibold">Graphic Design</h4>
-                                <p>I have idea to mixing skills, knowlegde, patience and inspiration to make potential customers excited about my service. <a href="design.html" class="text-primary-cc nowrap">Learn more…</a></p>
-                            </div>  
-                        </div><!-- /.d-flex -->
-                    </div><!-- /.col -->
-
-                    <div class="col-12 col-lg-9 col-xl-4">
-                        <div class="d-flex flex-column flex-md-row">
-                            <div class="useful-links-icon mr-md-4 mb-4 text-center text-md-left">
-                                <img src="assets/img/Group 165.png" />
-                            </div>
-                            <div class="useful-links-content text-center text-md-left" class="img-fluid">
-                                <h4 class="text-black font-weight-semibold">Develop Project</h4>
-                                <p>Front End Developer Who fouses on writing clean, elegant and efficient code. <a href="project.html" class="text-primary-cc nowrap">Learn more…</a></p>
-                            </div>  
-                        </div><!-- /.d-flex -->
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-
-        </section><!-- /.useful-links -->
-
-        <!-- Folow Us -->
-        <section class="privacy">
-            <div class="container">
-                <hr/> 
-                <div class="row justify-content-center mt-5">   
-                    <div class="col-8 text-center">
-                        <h5 class="text-black font-weight-semibold">Follow Us</h5>                                       
-                        <!-- <p class="mb-0"></p> -->
-                    </div>               
-                </div> <!-- /.row -->
-
-                <div class="row justify-content-center">
-
-                    <div class="col-8 text-center">                                                   
-                          
-                            <div class="container">
-
-                                    <!-- Grid row-->
-                                    <div class="row">
-                                
-                                      <!-- Grid column -->
-                                      <div class="col-md-12 py-4">
-                                        <div class="mb-4 flex-center">
-                                
-                                          <!-- Facebook -->
-                                          <a href="https://www.facebook.com/louie.b.samaniego" title="Facebook">
-                                            <i class="fab fa-facebook-f fa-lg white-text mr-md-4 mr-1 fa-2x pb-4" style="color:#373636"> </i>
-                                          </a>          
-                                          <!-- Github +-->
-                                          <a href="https://github.com/samaniegolouie" title="Github">
-                                            <i class="fab fa-github fa-lg white-text mr-md-4 mr-1 fa-2x pb-4" style="color:#373636"> </i>                                            
-                                          </a>
-                                          <!--Linkedin -->
-                                          <a href="https://www.linkedin.com/in/louie-samaniego-a44001181" title="Linkedin">
-                                            <i class="fab fa-linkedin-in fa-lg white-text mr-md-4 mr-1 fa-2x pb-4 " style="color:#373636"> </i>
-                                          </a>
-                                          <!--Instagram-->
-                                          <a href="https://www.instagram.com/louie_card_art/" title="Instagram">
-                                            <i class="fab fa-instagram fa-lg white-text mr-md-4 mr-1 fa-2x pb-4" style="color:#373636"> </i>
-                                          </a>
-                                          <!--Youtube-->
-                                          <a href="https://www.youtube.com/user/louie06samaniego" title="Youtube">
-                                            <i class="fab fa-youtube-square fa-lg white-text mr-md-4 mr-1 fa-2x pb-4" style="color:#373636"> </i>                                            
-                                          </a>
-                                         
-                                         
-                                        </div>
-                                      </div>
-                                      <!-- Grid column -->
-                                
-                                    </div>
-                                    <!-- Grid row-->
-                                
-                                  </div>
-                          
-                            
-                      </div> <!--/row-->                    
-                </div> <!--/row-->
-                <hr/>
-            </div>  <!-- /.container -->
-        </section><!-- /.Folow Us -->
-
-        
-
-        <!-- Footer -->
-        <footer class="py-4 text-center">
-            <div class="container">
-                <span>Copyright © 2020 Lsart. All Rights Reserved.</span>
-            </div>
-        </footer>
-
-        <!-- Boostrap JS, Popper.js, and jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="assets/js/main.js" async defer></script>
-        
-        
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169907498-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-169907498-1');
-</script> -->
-        
-        <!-- Load Facebook SDK for JavaScript -->
-      <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v8.0'
-          });
-        };
-
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
-      <!-- Your Chat Plugin code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="1699271010295433">
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a
+              class="btn btn-sm btn-main ms-lg-2"
+              href="https://www.linkedin.com/in/louie-samaniego-a44001181/"
+              target="_blank"
+            >
+              Let’s Connect
+            </a>
+          </li>
+        </ul>
       </div>
-        
-    </body>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero-wrap">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="hero-badge">
+            <i class="bi bi-cpu"></i>
+             Full-Stack Developer • System Builder • WordPress + Business Platforms 
+          </div>
+
+          <h1 class="hero-title">
+            Turning <span class="gradient-text">ideas and workflows</span>
+            into clean, modern digital solutions.
+          </h1>
+
+          <p class="hero-text">
+            I’m Louie Samaniego,  I build enterprise systems, high-performance websites, and scalable digital solutions
+            using <span class="highlight">WordPress</span>, <span class="highlight">Laravel</span>,
+            <span class="highlight">React</span>, <span class="highlight">PHP</span>, and modern web technologies.
+            My focus is creating practical systems for operations, dashboards, document workflows,
+            and conversion-driven websites.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#projects" class="btn btn-main">View My Projects</a>
+            <a href="https://samaniegolouie.github.io/" target="_blank" class="btn btn-ghost">
+              Visit Portfolio
+            </a>
+          </div>
+
+          <div class="hero-mini">
+            <span>Php</span>
+            <span>Laravel</span>
+            <span>React</span>
+            <span>Tailwind</span>
+            <span>Bootstrap</span>
+            <span>WordPress</span>
+            <span>API Integration</span>
+            <span>System Workflow</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="keyboard-scene">
+            <div class="floating-label one">Responsive Builds</div>
+            <div class="floating-label two">Business Systems</div>
+            <div class="floating-label three">Frontend + Backend</div>
+            <div class="floating-label four">UI / API / Logic</div>
+
+            <div class="keyboard-board glass">
+              <div class="key">ESC</div>
+              <div class="key">F1</div>
+              <div class="key">F2</div>
+              <div class="key">F3</div>
+              <div class="key">F4</div>
+              <div class="key key-glow">UI</div>
+
+              <div class="key">Q</div>
+              <div class="key">W</div>
+              <div class="key">E</div>
+              <div class="key">R</div>
+              <div class="key">T</div>
+              <div class="key key-glow">API</div>
+
+              <div class="key">A</div>
+              <div class="key">S</div>
+              <div class="key">D</div>
+              <div class="key">F</div>
+              <div class="key">G</div>
+              <div class="key key-glow key-pulse">CODE</div>
+
+              <div class="key">Z</div>
+              <div class="key">X</div>
+              <div class="key">C</div>
+              <div class="key">V</div>
+              <div class="key">B</div>
+              <div class="key key-glow">BUILD</div>
+
+              <div class="key key-space">SYSTEMS • WEBSITES • WORKFLOWS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- STATS -->
+  <section class="section-space">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass ">
+            <div class="metric-icon"><i class="bi bi-clock-history"></i></div>
+            <div class="stats-number">6+</div>          
+            <p class="metric-label">Years of development experience across websites, business tools, and internal systems.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass">
+             <div class="metric-icon"><i class="bi bi-kanban"></i></div>
+            <div class="stats-number">40+</div>
+            <p class="metric-label">Projects handled in WordPress, frontend, backend, UI, and automation-related work.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass">
+            <div class="metric-icon"><i class="bi bi-code-slash"></i></div>
+            <div class="stats-number">Full-Stack</div>
+            <p class="metric-label">Frontend and backend execution from layout to logic, APIs, workflows, and reports.</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <div class="stats-card glass ">
+            <div class="metric-icon"><i class="bi bi-diagram-3"></i></div>
+            <div class="stats-number">Systems</div>
+            <p class="metric-label">Enterprise-style thinking for dashboards, logistics processes, and document handling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- TICKER -->
+  <section class="py-2">
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>Laravel</span>
+        <span>React</span>
+        <span>Bootstrap</span>
+        <span>WordPress</span>
+        <span>WooCommerce</span>
+        <span>Tailwind</span>
+        <span>MySQL</span>
+        <span>REST API</span>
+        <span>UI/UX</span>
+        <span>Responsive QA</span>
+        <span>System Workflow</span>
+        <span>PDF Automation</span>
+
+        <span>Laravel</span>
+        <span>React</span>
+        <span>Bootstrap</span>
+        <span>WordPress</span>
+        <span>WooCommerce</span>
+        <span>Tailwind</span>
+        <span>MySQL</span>
+        <span>REST API</span>
+        <span>UI/UX</span>
+        <span>Responsive QA</span>
+        <span>System Workflow</span>
+        <span>PDF Automation</span>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="stack" class="my-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <p class="hero-badge">tech_stack[]</p>
+        <h2 class="section-title">Tools I  use to build and deliver</h2>
+        <p class="section-subtitle">
+          From WordPress builds and frontend interfaces to backend systems, APIs, and printable document flows.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-wordpress"></i></div>
+            <p class="skill-title">WordPress</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-grid-1x2"></i></div>
+            <p class="skill-title">Elementor</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-boxes"></i></div>
+            <p class="skill-title">Laravel</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-filetype-jsx"></i></div>
+            <p class="skill-title">React</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-filetype-php"></i></div>
+            <p class="skill-title">PHP</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-filetype-js"></i></div>
+            <p class="skill-title">JavaScript</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-database"></i></div>
+            <p class="skill-title">MySQL</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-bootstrap"></i></div>
+            <p class="skill-title">Bootstrap</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-palette2"></i></div>
+            <p class="skill-title">Tailwind CSS</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-code-square"></i></div>
+            <p class="skill-title">REST API</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-file-earmark-pdf"></i></div>
+            <p class="skill-title">PDF Generation</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="stats-card glass text-center">
+            <div class="metric-icon"><i class="bi bi-github"></i></div>
+            <p class="skill-title">GitHub</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section-space pt-0">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-5">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">Developer, system builder, and practical problem solver</h2>
+          <p class="section-text">
+            I help turn business ideas into actual working systems and websites.
+            My strength is combining clean frontend execution, practical UI/UX,
+            backend-aware thinking, and real-world workflow understanding.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="about-box glass">
+            <p>
+               I’m a Full-Stack Developer based in the Philippines with hands-on experience in
+              <span class="highlight">WordPress</span>, <span class="highlight">Elementor</span>,
+              <span class="highlight">Laravel</span>, <span class="highlight">React</span>,
+              <span class="highlight">PHP</span>, <span class="highlight">JavaScript</span>,
+              <span class="highlight">MySQL</span>, and UI implementation using Bootstrap and modern CSS workflows.
+            </p>
+            <h5 class="fw-bold mt-3 mb-4 mono text-light">Core Focus</h5>
+            <ul class="mini-list">
+              <li><i class="bi bi-check2-circle"></i><span>Business systems, dashboards, and workflow-based modules</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>WordPress + Elementor websites with custom frontend improvements</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>PDF/document automation for manifests, reports, and print-ready output</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>HTML email template design for campaigns, onboarding, and updates</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Remote collaboration with agencies, teams, and international clients</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section-space pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">Services & strengths I bring to projects</h2>
+        <p class="section-text mx-auto">
+          Built for clients, businesses, teams, and projects that need more than just basic coding.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-window-stack"></i></div>
+            <h5>Frontend Development</h5>
+            <p>
+              Responsive pages, clean layouts, Bootstrap builds, React interfaces,
+              QA improvements, and UI refinements that feel polished.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-diagram-3"></i></div>
+            <h5>Business Systems</h5>
+            <p>
+              Internal tools, workflow pages, forms, dashboards, reports, and modules
+              that support actual business operations.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+            <h5>API Integration</h5>
+            <p>
+              Connecting frontend screens to endpoints, handling dynamic data,
+              and building practical flows for real system use.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card glass">
+            <div class="icon-box"><i class="bi bi-palette"></i></div>
+            <h5>UI/UX Support</h5>
+            <p>
+              Turning mockups into working pages, improving spacing and readability,
+              and helping make designs realistic for implementation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section-space pt-0">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-tag">Featured Work</span>
+        <h2 class="section-title">Handled projects in motion </h2>
+        <p class="section-text mx-auto">
+          A moving showcase of systems, dashboards, websites, and automation work 
+          designed to give a faster visual review of the kinds of projects I handle. 
+        </p>
+      </div>
+
+      <div class="project-track-wrap">
+        <div class="project-track">
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/valueplus-logo.png" alt="ValuePlus">
+            </div>
+            <h5>ValuePlus</h5>
+            <h6 class="hero-badge-2">Frontend • Plugin Integration</h6>
+            <p>
+              Implemented frontend components connected to rental car backend logic.
+            </p>
+          </div>
+       
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/sunlife-logo.png" alt="SunLifeGrepa">
+            </div>
+            <h5>Sun Life Grepa</h5>
+            <h6 class="hero-badge-2">Frontend • API Integration • Security Hardening</h6>
+            <p>
+              Built frontend components, integrated APIs, and handled system setup 
+              including security vulnerability fixes.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/ambiance.png"alt="AmbianceLight">
+            </div>
+            <h5>Ambiance Lighting For You</h5>
+            <h6 class="hero-badge-2">UI/UX Design • Website Development</h6>
+            <p>
+              Designed the UI/UX and developed the full website with sample 
+              API integrations for product functionality.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/enadoc-logo.png"alt="Enadoc">
+            </div>
+            <h5>Enadoc</h5>
+            <h6 class="hero-badge-2">Frontend • System Restoration • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend structure, restored legacy project data, and 
+              configured SMTP and security updates.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/tog.png"alt="TechoneGlobal">
+            </div>
+            <h5>TechOne Global</h5>
+            <h6 class="hero-badge-2">Frontend • System Recovery • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend pages, restored previous project 
+              environment, and configured SMTP and security fixes.
+            </p>
+          </div>
+          <!-- duplicate -->
+              <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/valueplus-logo.png" alt="ValuePlus">
+            </div>
+            <h5>ValuePlus</h5>
+            <h6 class="hero-badge-2">Frontend • Plugin Integration</h6>
+            <p>
+              Implemented frontend components connected to rental car backend logic.
+            </p>
+          </div>
+       
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/sunlife-logo.png" alt="SunLifeGrepa">
+            </div>
+            <h5>Sun Life Grepa</h5>
+            <h6 class="hero-badge-2">Frontend • API Integration • Security Hardening</h6>
+            <p>
+              Built frontend components, integrated APIs, and handled system setup 
+              including security vulnerability fixes.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/ambiance.png"alt="AmbianceLight">
+            </div>
+            <h5>Ambiance Lighting For You</h5>
+            <h6 class="hero-badge-2">UI/UX Design • Website Development</h6>
+            <p>
+              Designed the UI/UX and developed the full website with sample 
+              API integrations for product functionality.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/enadoc-logo.png"alt="Enadoc">
+            </div>
+            <h5>Enadoc</h5>
+            <h6 class="hero-badge-2">Frontend • System Restoration • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend structure, restored legacy project data, and 
+              configured SMTP and security updates.
+            </p>
+          </div>
+          <div class="project-card glass">
+            <div class="project-image">
+              <img src="assets/img/tog.png"alt="TechoneGlobal">
+            </div>
+            <h5>TechOne Global</h5>
+            <h6 class="hero-badge-2">Frontend • System Recovery • SMTP Setup</h6>
+            <p>
+              Rebuilt frontend pages, restored previous project 
+              environment, and configured SMTP and security fixes.
+            </p>
+          </div>
+        </div> 
+          
+         
+
+        <div class="project-track-2 my-5">
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Dewberry.png"alt="Dewberry">
+              </div>
+              <h5>Dewberry</h5>
+              <h6 class="hero-badge-2">Frontend Development</h6>
+                <p>
+                  Developed frontend components and small integrations with backend plugin logic.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/bright-solutions-final.png"alt="BrightSolutions">
+              </div>
+              <h5>Bright Solutions</h5>
+              <h6 class="hero-badge-2">Frontend Revamp • Web App Integration</h6>
+                <p>
+                  Redesigned the website and integrated the Senior Living Generative AI Toolkit web application.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/executive_help_now_logo.jpg"alt="ExecutiveHelpNow">
+              </div>
+              <h5>Executive Help Now</h5>
+              <h6 class="hero-badge-2">Frontend • Custom System Integration</h6>
+                <p>
+                  Implemented frontend features and connected the Talent Finder web application
+                  to the website.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Clean-Go-Green-Go-logo.png"alt="CleanGoGreenGo">
+              </div>
+              <h5>Clean Go Green Go</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Developed frontend layout and configured WooCommerce for e-commerce functionality.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/wineandroses-logo.png"alt="WineandRoses">
+              </div>
+              <h5>Wine and Roses</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Built responsive frontend pages and implemented WooCommerce store setup.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/fundraisingspree-logo.png"alt="FundraisingSpree">
+              </div>
+              <h5>Fundraising Spree</h5>
+              <h6 class="hero-badge-2">Frontend • Backend Plugin Integration</h6>
+                <p>
+                 Developed frontend pages and integrated backend plugin logic for campaign workflows.
+                </p>
+         </div>          
+
+          <!-- duplicate -->
+            <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Dewberry.png"alt="Dewberry">
+              </div>
+              <h5>Dewberry</h5>
+              <h6 class="hero-badge-2">Frontend Development</h6>
+                <p>
+                  Developed frontend components and small integrations with backend plugin logic.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/bright-solutions-final.png"alt="BrightSolutions">
+              </div>
+              <h5>Bright Solutions</h5>
+              <h6 class="hero-badge-2">Frontend Revamp • Web App Integration</h6>
+                <p>
+                  Redesigned the website and integrated the Senior Living Generative AI Toolkit web application.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/executive_help_now_logo.jpg"alt="ExecutiveHelpNow">
+              </div>
+              <h5>Executive Help Now</h5>
+              <h6 class="hero-badge-2">Frontend • Custom System Integration</h6>
+                <p>
+                  Implemented frontend features and connected the Talent Finder web application
+                  to the website.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/Clean-Go-Green-Go-logo.png"alt="CleanGoGreenGo">
+              </div>
+              <h5>Clean Go Green Go</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Developed frontend layout and configured WooCommerce for e-commerce functionality.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/wineandroses-logo.png"alt="WineandRoses">
+              </div>
+              <h5>Wine and Roses</h5>
+              <h6 class="hero-badge-2">Frontend • WooCommerce Setup</h6>
+                <p>
+                  Built responsive frontend pages and implemented WooCommerce store setup.
+                </p>
+         </div>
+          <div class="project-card glass">
+              <div class="project-image">
+                <img src="assets/img/fundraisingspree-logo.png"alt="FundraisingSpree">
+              </div>
+              <h5>Fundraising Spree</h5>
+              <h6 class="hero-badge-2">Frontend • Backend Plugin Integration</h6>
+                <p>
+                 Developed frontend pages and integrated backend plugin logic for campaign workflows.
+                </p>
+         </div>
+       
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- PLAYGROUND / DEV LAB -->
+<section id="playground" class="section-space pt-0">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-6">
+
+        <span class="section-tag">Developer Lab</span>
+
+        <h2 class="section-title">
+          Portfolio + Playground in one developer showcase
+        </h2>
+
+        <p class="section-text mb-4">
+          This section merges my technical portfolio with my unfinished playground concept.
+          It shows not only the systems and websites I build, but also the design thinking,
+          document layouts, UI experiments, and technical exploration behind real project work.
+        </p>
+
+        <ul class="mini-list mb-4">
+          <li><i class="bi bi-check2-circle"></i> UI component experiments</li>
+          <li><i class="bi bi-check2-circle"></i> System workflow mockups</li>
+          <li><i class="bi bi-check2-circle"></i> Document layout testing (PDF / reports)</li>
+          <li><i class="bi bi-check2-circle"></i> Interface concepts and technical ideas</li>
+        </ul>
+
+        <a href="https://samaniegolouie.github.io/playgroundcode/" 
+           target="_blank" 
+           class="btn btn-main">
+          <i class="bi bi-terminal me-2"></i>
+          Open Developer Playground
+        </a>
+
+      </div>
+
+
+      <!-- RIGHT CODE CARD -->
+      <div class="col-lg-6">
+
+        <div class="code-window glass">
+
+ <div class="hero-code">
+            <div class="code-top">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+
+            <div class="code-box">
+<span class="code-key">const</span> developer = {
+  <span class="code-key">name</span>: <span class="code-string">"Louie Samaniego"</span>,
+  <span class="code-key">focus</span>: <span class="code-string">"UI, Documents, and Creative Frontend Work"</span>,
+  <span class="code-key">location</span>: <span class="code-string">"Philippines"</span>,
+  <span class="code-key">stack</span>: [
+    <span class="code-array">"UI/UX Design"</span>,
+    <span class="code-array">"PDFMake.js"</span>,
+    <span class="code-array">"FPDF"</span>,
+    <span class="code-array">"React PDF"</span>,
+    <span class="code-array">"React PDF"</span>
+  ],
+  <span class="code-key">experiments</span>: [
+    <span class="code-array">"Layout Concepts"</span>,
+    <span class="code-array">"Document Workflows"</span>,
+    <span class="code-array">"Printable Reports"</span>,
+    <span class="code-array">"Email Template Design"</span>
+  ],
+  <span class="code-key">status</span>: <span class="code-value">"Built for exploration and real project support"</span>
+};
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+    <!-- GRAPHIC DESIGN -->
+<section id="graphic-design" class="section-space pt-0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Creative Work</span>
+      <h2 class="section-title">Graphic Design</h2>
+      <p class="section-text mx-auto">
+        A few selected artworks and visual materials I created for marketing, branding,
+        promotional content, and digital campaigns.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/ilocos-1.jpg" alt="Graphic Design 1">
+          </div>
+          <h5>Social Media Campaign Design</h5>
+          <p>
+            Marketing artwork created for online promotions, announcements, and social media branding.
+          </p>
+          <a href="assets/img/ilocos-1.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/apprentice.jpg" alt="Graphic Design 2">
+          </div>
+          <h5>Promotional Poster Design</h5>
+          <p>
+            Poster layout focused on typography, visual hierarchy, and promotional presentation.
+          </p>
+          <a href="assets/img/apprentice.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/Digital charcoal drawing.jpg" alt="Graphic Design 3">
+          </div>
+          <h5>Charcoal Digital Artwork</h5>
+          <p>
+            Digital charcoal-style artwork exploring texture, contrast, and expressive visual composition.
+          </p>
+          <a href="assets/img/Digital charcoal drawing.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/sportfest.jpg" alt="Graphic Design 4">
+          </div>
+          <h5>Event / Promo Artwork</h5>
+          <p>
+            A creative layout designed for announcements, event promotions, and branded visuals.
+          </p>
+          <a href="assets/img/sportfest.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/Ultimate.jpg" alt="Graphic Design 5">
+          </div>
+          <h5>Marketing Banner Design</h5>
+          <p>
+            Banner design focused on readability, strong visuals, and digital campaign support.
+          </p>
+          <a href="assets/img/Ultimate.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="design-card glass">
+          <div class="design-thumb">
+            <img src="assets/img/puppet.jpg" alt="Graphic Design 6">
+          </div>
+          <h5>Creative Visual Composition</h5>
+          <p>
+            A selected artwork showing my background in visual design and creative composition.
+          </p>
+          <a href="assets/img/puppet.jpg" target="_blank" class="btn btn-ghost btn-sm">
+            View Artwork
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIFESTYLE / VIDEO -->
+<section id="lifestyle" class="section-space pt-0">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-tag">Beyond Development</span>
+      <h2 class="section-title">Life Outside Work</h2>
+      <p class="section-text mx-auto">
+        Outside development and design, I also enjoy documenting simple moments through short videos,
+        outdoor activities, biking, hiking, and travel experiences.
+      </p>
+    </div>
+
+    <div class="lifestyle-box glass">
+      <p>
+        I like building digital solutions, but I also value real-life experiences outside the screen.
+        This section gives a small look at my lifestyle, creative side, and personal interests through
+        selected video content and moments I enjoy capturing.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/bikeLife.JPG" alt="Biking Video">
+          </div>
+          <h5>Biking Day</h5>
+          <p>
+            A short ride video capturing outdoor cycling, movement, and weekend activity.
+          </p>
+          <a href="https://www.facebook.com/reel/600980682407825" target="_blank" class="video-link-btn">
+            <i class="bi bi-youtube"></i> Watch Video
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/pulag.jpg" alt="Hiking Video">
+          </div>
+          <h5>Mountain Hiking</h5>
+          <p>
+            A short outdoor clip featuring mountain views, trail moments, and travel experience.
+          </p>
+          <a href="https://www.youtube.com/watch?v=2EaG7jK7hQg" target="_blank" class="video-link-btn">
+            <i class="bi bi-facebook"></i> View Clip
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="video-card glass">
+          <div class="video-thumb">
+            <img src="assets/img/dayinalife.JPG" alt="Day in a Life Video">
+          </div>
+          <h5>Day in the Life</h5>
+          <p>
+            A simple personal video showing daily moments, movement, and lifestyle outside work.
+          </p>
+          <a href="https://www.facebook.com/reel/4362794837337431" target="_blank" class="video-link-btn">
+            <i class="bi bi-play-circle"></i> Watch Video
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-space pt-0">
+    <div class="container">
+      <div class="contact-box glass">
+        <span class="section-tag">Let’s Work Together</span>
+        <h2 class="section-title mb-3">
+          Need a developer who can design, build, and think through the workflow?
+        </h2>
+        <p class="section-text mx-auto mb-4">
+          I help with websites, business systems, frontend execution, responsive improvements,
+          and practical technical solutions for growing teams and clients.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a
+            href="https://www.linkedin.com/in/louie-samaniego-a44001181/"
+            target="_blank"
+            class="btn btn-main"
+          >
+            <i class="bi bi-linkedin me-2"></i>LinkedIn
+          </a>
+
+          <a
+            href="https://samaniegolouie.github.io/"
+            target="_blank"
+            class="btn btn-ghost"
+          >
+            <i class="bi bi-globe me-2"></i>Portfolio
+          </a>
+          <a
+            href="https://github.com/samaniegolouie"
+            target="_blank"
+            class="btn btn-ghost"
+          >
+            <i class="bi bi-globe me-2"></i>Github
+          </a>
+
+         <a href="mailto:louie2samaniego2@gmail.com?subject=Project Inquiry"
+            class="btn btn-ghost">
+            <i class="bi bi-envelope me-2"></i>Email Me
+         </a>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-person-workspace"></i></div>
+            <h5>Frontend + UI</h5>
+            <p>Clean design execution, component layout, spacing, and responsive device polish.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-cpu"></i></div>
+            <h5>System Thinking</h5>
+            <p>Logic, flow, modules, data visibility, and practical structure for scalable builds.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-card glass text-center">
+            <div class="icon-box mx-auto"><i class="bi bi-lightning-charge"></i></div>
+            <h5>Execution Mindset</h5>
+            <p>Fast implementation, real progress, and practical solutions for actual project needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <p class="mb-0">© 2026 Louie Samaniego.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="https://www.linkedin.com/in/louie-samaniego-a44001181/" target="_blank">LinkedIn</a>
+          <a href="https://samaniegolouie.github.io/" target="_blank">Portfolio</a>
+          <a href="#home">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
